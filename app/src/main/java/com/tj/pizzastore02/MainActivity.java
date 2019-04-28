@@ -26,6 +26,8 @@ public class MainActivity extends BaseActivity {
     @Override
     public void setValues() {
 
+        setTitle("피자 주문 앱");
+
     }
 
     @Override
