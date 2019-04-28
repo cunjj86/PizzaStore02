@@ -1,8 +1,11 @@
 package com.tj.pizzastore02;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.tj.pizzastore02.adapters.StoreAdapter;
 import com.tj.pizzastore02.databinding.ActivityMainBinding;
@@ -29,7 +32,18 @@ public class MainActivity extends BaseActivity {
 
     @Override
     public void setupEvents() {
+        act.pizzaStoreListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+                PizzaStore store = pizzaStores.get(position);
+
+                Intent intent = new Intent(mContext, StoreDetailActivity.class);
+                intent.putExtra("가게정보", store);
+                startActivity(intent);
+
+            }
+        });
     }
 
     @Override

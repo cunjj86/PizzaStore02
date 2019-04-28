@@ -1,6 +1,8 @@
 package com.tj.pizzastore02.datas;
 
-public class PizzaStore {
+import java.io.Serializable;
+
+public class PizzaStore implements Serializable {
 
     public String name;
     public String openTime;
