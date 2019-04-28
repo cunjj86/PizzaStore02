@@ -4,6 +4,7 @@ import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.tj.pizzastore02.adapters.StoreAdapter;
 import com.tj.pizzastore02.databinding.ActivityMainBinding;
 import com.tj.pizzastore02.datas.PizzaStore;
 
@@ -15,6 +16,8 @@ public class MainActivity extends BaseActivity {
     ActivityMainBinding act;
 
     List<PizzaStore> pizzaStores = new ArrayList<>();
+
+    StoreAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,10 @@ public class MainActivity extends BaseActivity {
 
         setTitle("피자 주문 앱");
         fillPizzaStores();
+
+
+        mAdapter = new StoreAdapter(mContext, pizzaStores);
+        act.pizzaStoreListView.setAdapter(mAdapter);
     }
 
     void fillPizzaStores() {
